@@ -4,9 +4,22 @@ Returns: a List of integers
 '''
 def product_of_all_other_numbers(arr):
     # Your code here
+    left = [None] * len(arr)
+    right = [None] * len(arr)
+    product = [None] * len(arr)
 
-    pass
+    left[0] = 1
+    right[len(arr) -1] = 1
 
+    for i in range(1, len(arr)):
+        left[i] = left[i-1] * arr[i-1]
+        if i == len(arr) - 1:
+            product[i] = left[i]
+    for i in range(len(arr) -2, -1, -1):
+        right[i] = right[i +1] * arr[i+1]
+        product[i] = left[i] * right[i]
+
+    return product
 
 if __name__ == '__main__':
     # Use the main function to test your implementation
