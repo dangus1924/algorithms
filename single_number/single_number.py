@@ -4,14 +4,25 @@ Returns: an integer
 '''
 def single_number(arr):
     # Your code here
-    
-    for num in arr:
-        if arr[0] == arr[1]:
+    odd_ball = []
+    while arr:
+        if len(arr) == 1:
+            odd_ball.append(arr[0])
             arr.pop(0)
-            arr.pop(0)            
-            print(arr)
+            return odd_ball
+        elif arr[0] == arr[1]:
+            arr.pop(0)
+            arr.pop(0)
+        
+        elif arr[0] != arr[1]:
+            odd_ball.append(arr[0])
+            arr.pop(0)
+        
+
+    
+        
          
-    return arr[0]
+    return odd_ball
     
 
 
